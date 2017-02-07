@@ -6,6 +6,10 @@ This plugin eliminates this possibility by adding user meta that removes publish
 
 As a failsafe, it is not possible for anyone to modify their own meta. It requires another Administrator to check the box.
 
+# Requirements
+- WordPress 4.7.3+
+- PHP 5.4+
+
 # Screenshots
 
 This is what the UI on a user edit screen will look like when an Administrator edits another profile:
