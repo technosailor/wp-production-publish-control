@@ -1,8 +1,20 @@
 <?php
 namespace WPPC\Admin;
 
+/**
+ * Handles the rendering and saving of Admin User meta
+ *
+ * Class WPPC_Admin
+ * @package WPPC\Admin
+ */
 class WPPC_Admin {
 
+    /**
+     * Saves User Profile data
+     *
+     * @param $user_id
+     * @return bool
+     */
     public static function save_profile_meta( $user_id ) {
 
         if( ! check_admin_referer( 'wppc-publishing-controls', 'wppc-publishing-controls-nonce') ) {
@@ -16,6 +28,11 @@ class WPPC_Admin {
         }
     }
 
+    /**
+     * Adds HTML UI to user profile
+     * 
+     * @param $user
+     */
     public static function add_profile_meta( $user ) {
         wp_nonce_field( 'wppc-publishing-controls', 'wppc-publishing-controls-nonce' );
         $disallowed = ( get_user_meta( $user->ID, 'wppc-disallow-publish', true ) ) ? 'on' : '';
