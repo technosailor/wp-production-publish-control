@@ -48,7 +48,13 @@ class WPPC_Admin {
                         </label>
                     </th>
                     <td>
-                        <input type="checkbox" id="wppc-restrict-publishing" name="wppc-restrict-publishing" <?php checked( $disallowed, 'on' ) ?>>
+                        <input
+                            type="checkbox"
+                            id="wppc-restrict-publishing"
+                            name="wppc-restrict-publishing"
+                            <?php checked( $disallowed, 'on' ) ?>
+                            <?php echo ( get_current_user_id() === $user->ID ) ? 'disabled="disabled"' : ''; ?>
+                        >
                     </td>
                 </tr>
             </tbody>
