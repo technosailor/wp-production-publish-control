@@ -30,11 +30,12 @@ class WPPC_Admin {
 
     /**
      * Adds HTML UI to user profile
-     * 
+     *
      * @param $user
      */
     public static function add_profile_meta( $user ) {
         wp_nonce_field( 'wppc-publishing-controls', 'wppc-publishing-controls-nonce' );
+
         $disallowed = ( get_user_meta( $user->ID, 'wppc-disallow-publish', true ) ) ? 'on' : '';
         ?>
         <h2><?php _e( 'Publishing Control', 'wppc' ); ?></h2>

@@ -22,7 +22,7 @@ function limit_publish_capability( $all_caps, $caps, $args ) {
         ] );
     }
 
-    if( 'technosailor' === $current_user->display_name ) {
+    if( ! empty( get_user_meta( get_current_user_id(), 'wppc-disallow-publish', true ) ) ) {
         foreach( $banned_caps as $banned ) {
             if( array_key_exists( $banned, $all_caps ) ) {
                 $all_caps[ $banned ] = false;
