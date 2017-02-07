@@ -16,6 +16,11 @@ define( 'WPPC_URL',     plugin_dir_url( __FILE__ ) );
 define( 'WPPC_PATH',    dirname( __FILE__ ) . '/' );
 define( 'WPPC_INC',     WPPC_PATH . 'includes/' );
 
+
+require_once WPPC_INC . 'functions/capabilities.php';
+require_once WPPC_INC . 'classes/class-admin.php';
+
 require_once WPPC_INC . '/setup.php';
+
 
 \WPPC\Setup\setup();

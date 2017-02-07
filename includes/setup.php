@@ -1,31 +1,19 @@
 <?php
 namespace WPPC\Setup;
 
+/**
+ * Execute all the bootstrapping
+ */
 function setup() {
 
+    \WPPC\Setup\hooks();
 }
 
-function limit_publish_capability( $all_caps, $caps, $args ) {
-
-    $current_user = get_user_by( 'id', get_current_user_id() );
-
-    $banned_caps = [];
-    foreach( get_post_types() as $post_type ) {
-        $banned_caps = array_merge( $banned_caps, [
-            'publish_' . $post_type,
-            'publish_' . $post_type . 's',
-            'publish_others_' . $post_type . 's',
-        ] );
-    }
-
-    if( 'technosailor' === $current_user->display_name ) {
-        foreach( $banned_caps as $banned ) {
-            if( array_key_exists( $banned, $all_caps ) ) {
-                $all_caps[ $banned ] = false;
-            }
-        }
-    }
-
-    return $all_caps;
+/**
+ * Execute WordPress hooks
+ */
+function hooks() {
+    add_action( 'user_has_cap', '\WPPC\Capabilities\limit_publish_capability', 10, 3 );
+    add_action( 'edit_user_profile', [ '\WPPC\Admin\WPPC_Admin', 'add_profile_meta' ] );
+    add_action( 'show_user_profile', [ '\WPPC\Admin\WPPC_Admin', 'add_profile_meta' ] );
 }
-add_action( 'user_has_cap', __NAMESPACE__ . '\limit_publish_capability', 10, 3 );
