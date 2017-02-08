@@ -1,0 +1,21 @@
+{
+  "name": "wp-production-publish-control",
+  "description": "Production Publishing Control",
+  "version": "0.2.0",
+  "type": "wordpress-plugin",
+  "keywords": [],
+  "homepage": "https://github.com/technosailor/wp-production-publish-control",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Aaron Brazell",
+      "email": "aaron@technosailor.com",
+      "homepage": "https://technosailor.com",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.4"
+  }
+}

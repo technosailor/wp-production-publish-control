@@ -26,6 +26,7 @@ This is what the UI looks like when a user edits their own profile. The checkbox
 
 *v 0.2.0*
 - Adds the ability to restrict publishing by email domain. Configured within Settings > Writing
+- Adds `composer.json` package definition
 
 *v 0.1.0*
 - Iniital Release
