@@ -99,7 +99,6 @@ class WPPC_Admin {
      */
     public static function email_domain_field( $args ) {
         $restricted_emails = get_option( 'wppc-restricted-domains' );
-
         wp_nonce_field( 'wppc-publishing-controls-banned-emails', 'wppc-publishing-controls-banned-emails-nonce' );
         ?>
         <input type="text" name="wppc-restrict-publishing-domains-field" id="wppc-restrict-publishing-domains-field" class="regular-text ltr" value="<?php echo sanitize_text_field( implode( ',', $restricted_emails ) ) ?>">
