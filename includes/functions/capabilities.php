@@ -22,7 +22,13 @@ function limit_publish_capability( $all_caps, $caps, $args ) {
         ] );
     }
 
-    if( ! empty( get_user_meta( get_current_user_id(), 'wppc-disallow-publish', true ) ) ) {
+    $user_meta_disallow = get_user_meta( get_current_user_id(), 'wppc-disallow-publish', true );
+    $domains_disallow = get_option( 'wppc-restricted-domains' );
+
+    $email_parts = explode( '@', $current_user->user_email );
+    $email_domain = $email_parts[1];
+
+    if( ! empty( $user_meta_disallow ) || in_array( $email_domain, $domains_disallow ) ) {
         foreach( $banned_caps as $banned ) {
             if( array_key_exists( $banned, $all_caps ) ) {
                 $all_caps[ $banned ] = false;
