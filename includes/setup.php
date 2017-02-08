@@ -20,5 +20,4 @@ function hooks() {
     add_action( 'edit_user_profile_update', [ '\WPPC\Admin\WPPC_Admin', 'save_profile_meta' ] );
     add_action( 'admin_init', [ '\WPPC\Admin\WPPC_Admin', 'section_settings' ] );
     add_action( 'admin_init', [ '\WPPC\Admin\WPPC_Admin', 'save_section_settings' ] );
-
 }
