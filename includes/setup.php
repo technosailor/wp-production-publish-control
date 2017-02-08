@@ -5,6 +5,7 @@ namespace WPPC\Setup;
  * Execute all the bootstrapping
  */
 function setup() {
+    
     // Run Hook Callbacks
     \WPPC\Setup\hooks();
 }
