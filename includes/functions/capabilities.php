@@ -23,7 +23,12 @@ function limit_publish_capability( $all_caps, $caps, $args ) {
     }
 
     $user_meta_disallow = get_user_meta( get_current_user_id(), 'wppc-disallow-publish', true );
-    $domains_disallow = get_option( 'wppc-restricted-domains' );
+
+    /**
+     * This filter is used to override whatever admin setting list of domains are banned.
+     * Supply an array here.
+     */
+    $domains_disallow = apply_filters( 'wppc\restricted_domains', get_option( 'wppc-restricted-domains' ) );
 
     $email_parts = explode( '@', $current_user->user_email );
     $email_domain = $email_parts[1];
